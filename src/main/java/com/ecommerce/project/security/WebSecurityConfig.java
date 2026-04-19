@@ -103,7 +103,7 @@ public class WebSecurityConfig {
                                 .requestMatchers("/api/test/**").permitAll()
                                 .requestMatchers("/images/**").permitAll()
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                                .requestMatchers("/", "/index.html", "/static/**", "/assets/**", "/*.json", "/*.png", "/*.ico", "/*.svg", "/*.webp", "/*.jpg").permitAll()
+                                .requestMatchers("/", "/index.html", "/static/**", "/assets/**", "/*.js", "/*.css", "/*.json", "/*.png", "/*.ico", "/*.svg", "/*.webp", "/*.jpg").permitAll()
                                 .anyRequest().authenticated()
                 );
 
@@ -123,12 +123,25 @@ public class WebSecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web -> web.ignoring().requestMatchers("/v2/api-docs",
+        return (web -> web.ignoring().requestMatchers(
+                "/v2/api-docs",
                 "/configuration/ui",
                 "/swagger-resources/**",
                 "/configuration/security",
                 "/swagger-ui.html",
-                "/webjars/**"));
+                "/webjars/**",
+                "/index.html",
+                "/assets/**",
+                "/static/**",
+                "/*.js",
+                "/*.css",
+                "/*.json",
+                "/*.png",
+                "/*.ico",
+                "/*.svg",
+                "/*.webp",
+                "/*.jpg"
+        ));
     }
 
 
