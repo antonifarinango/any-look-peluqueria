@@ -133,8 +133,8 @@ public class WebSecurityConfig {
                 "/index.html",
                 "/assets/**",
                 "/public/**",
-                "/**/*.png",
-                "/**/*.jpeg",
+                "/*.png",
+                "/*.jpeg",
                 "/static/**",
                 "/*.js",
                 "/*.css",
@@ -186,8 +186,8 @@ public class WebSecurityConfig {
                 userRepository.save(seller1);
             }
 
-            if (!userRepository.existsByUserName("admin")) {
-                User admin = new User("admin", "admin@example.com",passwordEncoder.encode("adminPass"));
+            if (!userRepository.existsByUserName("titaAlejandra")) {
+                User admin = new User("titaAlejandra", "admin123321@example.com",passwordEncoder.encode("Any-Look-123321"));
                 userRepository.save(admin);
             }
 
