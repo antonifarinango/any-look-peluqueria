@@ -103,7 +103,7 @@ public class WebSecurityConfig {
                                 .requestMatchers("/api/test/**").permitAll()
                                 .requestMatchers("/images/**").permitAll()
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                                .requestMatchers("/", "/index.html","/public/**" ,"/static/**", "/assets/**", "/*.js", "/*.css", "/*.json", "/*.png", "/*.ico", "/*.svg", "/*.webp", "/*.jpg").permitAll()
+                                .requestMatchers("/", "/index.html","/static/**", "/assets/**", "/*.js", "/*.css", "/*.json", "/*.png", "/*.ico", "/*.svg", "/*.webp", "/*.jpg").permitAll()
                                 .anyRequest().authenticated()
                 );
 
@@ -132,7 +132,6 @@ public class WebSecurityConfig {
                 "/webjars/**",
                 "/index.html",
                 "/assets/**",
-                "/public/**",
                 "/*.png",
                 "/*.jpeg",
                 "/static/**",
