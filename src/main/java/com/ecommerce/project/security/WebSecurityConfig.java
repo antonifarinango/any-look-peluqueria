@@ -177,19 +177,8 @@ public class WebSecurityConfig {
                 User admin = new User("titaAlejandra", "admin123321@example.com",passwordEncoder.encode("Any-Look-123321"));
                 userRepository.save(admin);
             }
-
-            // Update roles for existing users
-            userRepository.findByUserName("user1").ifPresent(user -> {
-                user.setRoles(userRoles);
-                userRepository.save(user);
-            });
-
-            userRepository.findByUserName("seller1").ifPresent(seller -> {
-                seller.setRoles(sellerRoles);
-                userRepository.save(seller);
-            });
-
-            userRepository.findByUserName("admin").ifPresent(admin -> {
+            //DAR ROLES A LOS USUARIOS
+            userRepository.findByUserName("titaAlejandra").ifPresent(admin -> {
                 admin.setRoles(adminRoles);
                 userRepository.save(admin);
             });
