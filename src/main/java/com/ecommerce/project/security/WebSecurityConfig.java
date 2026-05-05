@@ -103,7 +103,8 @@ public class WebSecurityConfig {
                                 .requestMatchers("/api/test/**").permitAll()
                                 .requestMatchers("/images/**").permitAll()
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                                .requestMatchers("/", "/index.html","/static/**", "/assets/**", "/*.js", "/*.css", "/*.json", "/*.png", "/*.ico", "/*.svg", "/*.webp", "/*.jpg").permitAll()
+                                .requestMatchers("/", "/index.html","/static/**", "/assets/**", "/*.js", "/*.css", "/*.json", "/*.png", "/*.ico", "/*.svg", "/*.webp", "/*.jpg", "/*.jpeg", "/*.gif").permitAll()
+                                .requestMatchers("/login", "/register", "/cart", "/products/**", "/categories/**", "/admin/**", "/seller/**").permitAll()
                                 .anyRequest().authenticated()
                 );
 
@@ -132,17 +133,24 @@ public class WebSecurityConfig {
                 "/webjars/**",
                 "/index.html",
                 "/assets/**",
-                "/*.png",
-                "/*.jpeg",
                 "/static/**",
                 "/*.js",
                 "/*.css",
                 "/*.json",
                 "/*.png",
+                "/*.jpeg",
+                "/*.jpg",
+                "/*.gif",
                 "/*.ico",
                 "/*.svg",
                 "/*.webp",
-                "/*.jpg"
+                "/login",
+                "/register",
+                "/cart",
+                "/products/**",
+                "/categories/**",
+                "/admin/**",
+                "/seller/**"
         ));
     }
 
