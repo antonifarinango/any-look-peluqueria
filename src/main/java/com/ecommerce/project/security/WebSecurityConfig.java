@@ -79,9 +79,10 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        // CSRF Handler para extraer el token de los headers (X-XSRF-TOKEN)
+        //Desactivar el enmascaramiento del token para que sea estable entre peticiones y no cambie cada vez
+        //elimina el error de dar doble click para obtener el token correcto
         CsrfTokenRequestAttributeHandler requestHandler = new CsrfTokenRequestAttributeHandler();
-        requestHandler.setCsrfRequestAttributeName("_csrf");
+        requestHandler.setCsrfRequestAttributeName(null);
 
         http.csrf(csrf -> csrf
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()) // Permite que React lea la cookie XSRF-TOKEN
